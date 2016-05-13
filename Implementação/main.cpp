@@ -8,7 +8,7 @@ using namespace std;
 int main(int argc, char** argv) {
 	int escolha, flag;
 	float a,b,c;
-	float resultado[2];
+	float resultadoX1, resultadoX2;
 	
 	flag = -1;
 	while(flag != 0){
@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
 				break;		
 			case 1:{
 				Delta dt;
-				ValorX1X2 vx1x2;
+				ValorX1X2 vx;
 				cout << "Digite o valor de A: "<< endl;
 				cin >> a;
 				cout << "Digite o valor de B: "<< endl;
@@ -38,10 +38,11 @@ int main(int argc, char** argv) {
 				if ((dt.Calcula_Delta(a,b,c)) < 0)
 					dt.Delta_erro();
 			 	else{
-					*resultado = vx1x2.Calcula_X1X2(a,b,dt.Calcula_Delta(a,b,c));
+					resultadoX1 = vx.Calcula_X1(a,b,dt.Calcula_Delta(a,b,c));
+					resultadoX2 = vx.Calcula_X2(a,b,dt.Calcula_Delta(a,b,c));
 					cout << "----------------------------Calculo Finalizado----------------------------" << endl;
 					cout << "-------------------------------Resultados---------------------------------" << endl;
-					cout << "X1 = " << resultado[0] <<" /  X2 = "<< resultado[1] << endl; 
+					cout << "X1 = " << resultadoX1 <<" /  X2 = "<< resultadoX2 << endl; 
 				}
 				break;
 			}
